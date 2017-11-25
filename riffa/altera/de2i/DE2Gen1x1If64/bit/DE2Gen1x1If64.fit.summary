@@ -1,0 +1,20 @@
+Fitter Status : Successful - Mon Jun 26 01:23:08 2017
+Quartus II 64-Bit Version : 14.1.0 Build 186 12/03/2014 SJ Web Edition
+Revision Name : DE2Gen1x1If64
+Top-level Entity Name : DE2Gen1x1If64
+Family : Cyclone IV GX
+Device : EP4CGX150DF31C7
+Timing Models : Final
+Total logic elements : 16,474 / 149,760 ( 11 % )
+    Total combinational functions : 13,319 / 149,760 ( 9 % )
+    Dedicated logic registers : 8,792 / 149,760 ( 6 % )
+Total registers : 8792
+Total pins : 37 / 508 ( 7 % )
+Total virtual pins : 0
+Total memory bits : 3,451,591 / 6,635,520 ( 52 % )
+Embedded Multiplier 9-bit elements : 84 / 720 ( 12 % )
+Total GXB Receiver Channel PCS : 1 / 8 ( 13 % )
+Total GXB Receiver Channel PMA : 1 / 8 ( 13 % )
+Total GXB Transmitter Channel PCS : 1 / 8 ( 13 % )
+Total GXB Transmitter Channel PMA : 1 / 8 ( 13 % )
+Total PLLs : 2 / 8 ( 25 % )

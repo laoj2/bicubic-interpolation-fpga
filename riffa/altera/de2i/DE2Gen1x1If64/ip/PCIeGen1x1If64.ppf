@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<pinplan blockname="pcie_block" fileref="./PCIeGen1x1If64.ppx" variation_name="PCIeGen1x1If64" megafunction_name="IP Compiler for PCI Express" />

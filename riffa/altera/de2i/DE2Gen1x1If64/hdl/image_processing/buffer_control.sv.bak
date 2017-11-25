@@ -1,0 +1,51 @@
+module buffer_control (
+	
+	input clock,
+	input reset,
+	
+	input [9:0] rows,
+	input [9:0] cols,
+	input input_valid,
+	input [31:0] pixels,
+
+	
+	output logic [3:0] write_en,
+	output logic [16:0] address [0:3],
+	output logic [7:0] out_data[0:3],
+	output logic [31:0] current_pixel
+
+);
+
+integer i;
+
+
+always_ff @(posedge clock or posedge reset) begin
+	if(reset) begin
+		write_en <= 4'b0;
+		current_pixel <= -32'd1;
+		for(i = 0 ; i < 4 ; i ++) begin
+			address[i] <= -17'd1;
+			out_data[i] <= 8'd0;
+		end
+	end
+	else begin
+		if(input_valid) begin //INPUT IS VALID
+				current_pixel <= current_pixel+4;				
+				write_en <= 4'b1111;
+				for(i = 0 ; i < 4 ; i++) begin
+					address[i]++;	
+				end
+				out_data[0] <= pixels[7:0];
+				out_data[1] <= pixels[15:8];
+				out_data[2] <= pixels[23:16];
+				out_data[3] <= pixels[31:24];				
+		end	
+		else begin // INPUT IS NOT VALID
+			write_en <= 4'b0000;
+		end
+	end
+end
+
+
+endmodule
+

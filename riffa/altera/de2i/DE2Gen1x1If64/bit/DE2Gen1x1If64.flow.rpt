@@ -1,0 +1,265 @@
+Flow report for DE2Gen1x1If64
+Sun Jul  2 21:41:48 2017
+Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Flow Summary                                                                    ;
++------------------------------------+--------------------------------------------+
+; Flow Status                        ; Successful - Sun Jul  2 21:41:48 2017      ;
+; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
+; Revision Name                      ; DE2Gen1x1If64                              ;
+; Top-level Entity Name              ; DE2Gen1x1If64                              ;
+; Family                             ; Cyclone IV GX                              ;
+; Device                             ; EP4CGX150DF31C7                            ;
+; Timing Models                      ; Final                                      ;
+; Total logic elements               ; 16,474 / 149,760 ( 11 % )                  ;
+;     Total combinational functions  ; 13,319 / 149,760 ( 9 % )                   ;
+;     Dedicated logic registers      ; 8,792 / 149,760 ( 6 % )                    ;
+; Total registers                    ; 8792                                       ;
+; Total pins                         ; 37 / 508 ( 7 % )                           ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 3,451,591 / 6,635,520 ( 52 % )             ;
+; Embedded Multiplier 9-bit elements ; 84 / 720 ( 12 % )                          ;
+; Total GXB Receiver Channel PCS     ; 1 / 8 ( 13 % )                             ;
+; Total GXB Receiver Channel PMA     ; 1 / 8 ( 13 % )                             ;
+; Total GXB Transmitter Channel PCS  ; 1 / 8 ( 13 % )                             ;
+; Total GXB Transmitter Channel PMA  ; 1 / 8 ( 13 % )                             ;
+; Total PLLs                         ; 2 / 8 ( 25 % )                             ;
++------------------------------------+--------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 06/26/2017 01:10:20 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; DE2Gen1x1If64       ;
++-------------------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                         ;
++-------------------------------------+----------------------------------------------------------------------------------------------+---------------+--------------------+----------------+
+; Assignment Name                     ; Value                                                                                        ; Default Value ; Entity Name        ; Section Id     ;
++-------------------------------------+----------------------------------------------------------------------------------------------+---------------+--------------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 0.149845022015323                                                                            ; --            ; --                 ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                                                                  ; --            ; --                 ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)                                                                    ; <None>        ; --                 ; --             ;
+; ENABLE_SIGNALTAP                    ; Off                                                                                          ; --            ; --                 ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                           ; --            ; --                 ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcierd_reconfig_clk_pll.v                       ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_64b_x1_pipen1b.v                           ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_64b_x4_pipen1b.v                           ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_64b_x8_pipen1b.v                           ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_hip_256_pipen1b.v                          ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_hip_pipen1b.v                              ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pclk_align.v                               ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pclk_pll.v                                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_phasefifo.v                                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_100_125.v                              ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_100_250.v                              ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_125_250.v                              ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_15625_125.v                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_250_100.v                              ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_phy0.v                                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_phy1_62p5.v                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_phy2.v                                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_phy3_62p5.v                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_phy4_62p5.v                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_pll_phy5_62p5.v                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_reconfig_3cgx.v                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_reconfig_4sgx.v                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_rs_serdes.v                                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_1sgx_x1_12500.v                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_1sgx_x1_15625.v                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_1sgx_x4_12500.v                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_1sgx_x4_15625.v                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_2agx_x1d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_2agx_x1d_gen1_16p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_2agx_x4d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_2agx_x4d_gen1_16p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_2agx_x8d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_2sgx_x1d_10000.v                    ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_2sgx_x4d_10000.v                    ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_2sgx_x8d_10000.v                    ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_3cgx_x1d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_3cgx_x1d_gen1_16p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_3cgx_x2d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_3cgx_x4d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_4sgx_x1d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_4sgx_x1d_gen1_16p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_4sgx_x1d_gen2_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_4sgx_x4d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_4sgx_x4d_gen1_16p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_4sgx_x4d_gen2_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_4sgx_x8d_gen1_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/altpcie_serdes_4sgx_x8d_gen2_08p.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/pciexp64_dlink.v                                   ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/pciexp64_trans.v                                   ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/pciexpx8f_confctrl.v                               ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ip_compiler_for_pci_express-library/pciexp_dcram.v                                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64.v                                                                       ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_core.v                                                                  ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_core.vo                                                                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples                                                                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma                                                   ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/altpcie_dma_descriptor.v                          ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/altpcie_dma_dt.v                                  ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/altpcie_dma_prg_reg.v                             ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/altpcie_rc_slave.v                                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/altpcie_read_dma_requester.v                      ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/altpcie_write_dma_requester.v                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/altpcierd_example_app_chaining.v                  ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/init_ram.hex                                      ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/init_ram.mif                                      ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench                                         ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/altpcie_dma_dt_cst_sim.v                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/altpcietb_bfm_driver_chaining.v         ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/init_ram.hex                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/init_ram.mif                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/runtb.bat                               ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/runtb.do                                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/runtb.sh                                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/sim_filelist                            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/testbench/PCIeGen1x1If64_chaining_testbench.v     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/PCIeGen1x1If64_example_chaining_pipen1b.v         ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/PCIeGen1x1If64_plus.v                             ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/PCIeGen1x1If64_rs_hip.v                           ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/PCIeGen1x1If64_example_chaining_top.qpf           ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/PCIeGen1x1If64_example_chaining_top.qsf           ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/PCIeGen1x1If64_example_chaining_top.tcl           ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/chaining_dma/PCIeGen1x1If64_example_chaining_top.v             ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/common                                                         ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/common/testbench                                               ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module                                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_defines.v             ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_fifo.v                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_fifo_lkahd.v          ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_msibridge.v           ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_npbypassctl.v         ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_rx.v                  ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_rxbridge.v            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_sideband.v            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_top.v                 ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_tx.v                  ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_tx_pktordering.v      ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_txbridge.v            ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/altpcierd_icm_txbridge_withbypass.v ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_examples/incremental_compile_module/PCIeGen1x1If64_icm.v                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_serdes.v                                                                ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64.ppx                                                                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64.ppf                                                                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64_bb.v                                                                    ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64.bsf                                                                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64.qip                                                                     ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/PCIeGen1x1If64.html                                                                    ; --            ; --                 ; --             ;
+; MISC_FILE                           ; ../ip/ALTPLL50I50O125O250O.ppf                                                               ; --            ; --                 ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                                                                         ; --            ; --                 ; --             ;
+; NUM_PARALLEL_PROCESSORS             ; 10                                                                                           ; --            ; --                 ; --             ;
+; PARTITION_COLOR                     ; 16764057                                                                                     ; --            ; --                 ; Top            ;
+; PARTITION_COLOR                     ; 16764057                                                                                     ; --            ; de2i_150_qsys_pcie ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                                                        ; --            ; --                 ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                                                        ; --            ; de2i_150_qsys_pcie ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                                                       ; --            ; --                 ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                                                       ; --            ; de2i_150_qsys_pcie ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                          ; --            ; --                 ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                        ; --            ; --                 ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; ../bit/                                                                                      ; --            ; --                 ; --             ;
+; SEARCH_PATH                         ; ../../../../riffa_hdl                                                                        ; --            ; --                 ; --             ;
+; SEARCH_PATH                         ; ../ip/.                                                                                      ; --            ; --                 ; --             ;
+; SEARCH_PATH                         ; ../ip/ip_compiler_for_pci_express-library                                                    ; --            ; --                 ; --             ;
+; USE_SIGNALTAP_FILE                  ; ../bit/stp1.stp                                                                              ; --            ; --                 ; --             ;
+; VERILOG_INPUT_VERSION               ; SystemVerilog_2005                                                                           ; Verilog_2001  ; --                 ; --             ;
+; VERILOG_SHOW_LMF_MAPPING_MESSAGES   ; Off                                                                                          ; --            ; --                 ; --             ;
++-------------------------------------+----------------------------------------------------------------------------------------------+---------------+--------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:05:30     ; 1.0                     ; 1292 MB             ; 00:05:27                           ;
+; Fitter                    ; 00:07:08     ; 1.0                     ; 1636 MB             ; 00:06:46                           ;
+; Assembler                 ; 00:00:11     ; 1.0                     ; 909 MB              ; 00:00:09                           ;
+; TimeQuest Timing Analyzer ; 00:00:41     ; 1.0                     ; 1130 MB             ; 00:00:32                           ;
+; EDA Netlist Writer        ; 00:00:25     ; 1.0                     ; 1283 MB             ; 00:00:24                           ;
+; PowerPlay Power Analyzer  ; 00:00:50     ; 1.0                     ; 1174 MB             ; 00:00:48                           ;
+; PowerPlay Power Analyzer  ; 00:00:48     ; 1.0                     ; 1141 MB             ; 00:00:38                           ;
+; PowerPlay Power Analyzer  ; 00:00:40     ; 1.0                     ; 1130 MB             ; 00:00:39                           ;
+; PowerPlay Power Analyzer  ; 00:00:40     ; 1.0                     ; 1133 MB             ; 00:00:39                           ;
+; Total                     ; 00:16:53     ; --                      ; --                  ; 00:16:02                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                             ;
++---------------------------+------------------+----------------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
++---------------------------+------------------+----------------+------------+----------------+
+; Analysis & Synthesis      ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; Fitter                    ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; Assembler                 ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; TimeQuest Timing Analyzer ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; PowerPlay Power Analyzer  ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; PowerPlay Power Analyzer  ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; PowerPlay Power Analyzer  ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
+; PowerPlay Power Analyzer  ; inspiron         ; Ubuntu 16.04.2 ; 16         ; x86_64         ;
++---------------------------+------------------+----------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off DE2Gen1x1If64 -c DE2Gen1x1If64
+quartus_fit --read_settings_files=off --write_settings_files=off DE2Gen1x1If64 -c DE2Gen1x1If64
+quartus_asm --read_settings_files=off --write_settings_files=off DE2Gen1x1If64 -c DE2Gen1x1If64
+quartus_sta DE2Gen1x1If64 -c DE2Gen1x1If64
+quartus_eda --read_settings_files=off --write_settings_files=off DE2Gen1x1If64 -c DE2Gen1x1If64
+quartus_pow --read_settings_files=on --write_settings_files=off DE2Gen1x1If64 -c DE2Gen1x1If64
+quartus_pow --read_settings_files=on --write_settings_files=off DE2Gen1x1If64 -c DE2Gen1x1If64
+quartus_pow --read_settings_files=on --write_settings_files=off DE2Gen1x1If64 -c DE2Gen1x1If64
+quartus_pow --read_settings_files=on --write_settings_files=off DE2Gen1x1If64 -c DE2Gen1x1If64
+
+
+

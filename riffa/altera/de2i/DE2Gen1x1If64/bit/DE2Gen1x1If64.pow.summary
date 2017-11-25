@@ -1,0 +1,12 @@
+PowerPlay Power Analyzer Status : Successful - Sun Jul  2 21:41:48 2017
+Quartus II 64-Bit Version : 14.1.0 Build 186 12/03/2014 SJ Web Edition
+Revision Name : DE2Gen1x1If64
+Top-level Entity Name : DE2Gen1x1If64
+Family : Cyclone IV GX
+Device : EP4CGX150DF31C7
+Power Models : Final
+Total Thermal Power Dissipation : 1428.03 mW
+Core Dynamic Thermal Power Dissipation : 1033.42 mW
+Core Static Thermal Power Dissipation : 382.01 mW
+I/O Thermal Power Dissipation : 12.60 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

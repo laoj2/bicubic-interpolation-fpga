@@ -1,0 +1,306 @@
+module filter_controller (
+
+    input clock, reset,
+    input signed [31:0] rows, cols,
+	 input info_valid,
+    input signed [31:0] current_pixel_RAM,
+    input  [7:0] pixels_read_ram [0:3],
+
+    output logic signed[31:0] pixel_out,
+    output logic signed [31:0] read_address [0:3],
+    output logic pixel_valid
+);
+
+parameter SHIFT_AMOUNT = 8;
+parameter FP128 = 7;
+
+logic signed [31:0] pixels_read[0:3];
+assign pixels_read[0] = {24'd0, pixels_read_ram[0]};
+assign pixels_read[1] = {24'd0, pixels_read_ram[1]};
+assign pixels_read[2] = {24'd0, pixels_read_ram[2]};
+assign pixels_read[3] = {24'd0, pixels_read_ram[3]};
+
+logic signed [31:0] x_ratio, y_ratio, x_old, y_old;
+
+int signed i, j;
+int signed m;
+
+logic signed [31:0] dx [0:3] ;
+logic signed [31:0] dy [0:3] ;
+
+logic signed [31:0] Rx [0:3] ;
+logic signed [31:0] Ry [0:3] ;
+
+get_weight_mn mn_t(
+	i, j, m, -1,
+	x_ratio, y_ratio,
+    x_old, y_old,
+    dx[0], dy[0],
+    Rx[0], Ry[0]	
+);
+
+get_weight_mn mn_0 (
+	i, j, m, 0,
+	x_ratio, y_ratio,
+    x_old, y_old,
+    dx[1], dy[1],
+    Rx[1], Ry[1]	
+);
+
+get_weight_mn mn_1 (
+	i, j, m, 1,
+	x_ratio, y_ratio,
+    x_old, y_old,
+    dx[2], dy[2],
+    Rx[2], Ry[2]	
+);
+
+get_weight_mn mn_2 (
+	i, j, m, 2,
+	x_ratio, y_ratio,
+    x_old, y_old,
+    dx[3], dy[3],
+    Rx[3], Ry[3]	
+);
+
+logic signed [31:0] current_pixel_processed_0, current_pixel_processed_1, current_pixel_processed_2, current_pixel_processed_3;
+logic signed [31:0] limit_pixel_PROCESSED;
+logic signed [31:0] address_current_pixel_0, address_current_pixel_1, address_current_pixel_2, address_current_pixel_3;
+logic signed [31:0] memory_current_pixel [0:3];
+logic trigger;
+
+assign trigger =  info_valid & (j < 128) & (i < 128);
+
+
+assign y_ratio = rows << (SHIFT_AMOUNT - FP128);
+assign x_ratio = cols << (SHIFT_AMOUNT - FP128);
+
+//assign x_old = ((cols << (SHIFT_AMOUNT - FP128))*j) >> SHIFT_AMOUNT;
+//assign y_old = ((rows << (SHIFT_AMOUNT - FP128))*i) >> SHIFT_AMOUNT;
+
+enum int {IDLE=0, READING, READING2, ROW0, ROW1, ROW2, ROW3, BORDER_CASE} state;
+
+assign limit_pixel_PROCESSED = y_old*cols + x_old;
+
+always_ff @(posedge clock or posedge reset) begin   
+    if(reset) begin
+			read_address[0] <= 0;
+			read_address[1] <= 0;
+			read_address[2] <= 0;
+			read_address[3] <= 0;
+			memory_current_pixel[0] <= 0;
+			memory_current_pixel[1] <= 0;
+			memory_current_pixel[2] <= 0;
+			memory_current_pixel[3] <= 0;
+	 end
+	 else begin
+				 case(state)
+					  IDLE: begin
+							read_address[ ((y_old*cols + x_old) -32'sd1) & 2'b11 ] <= ((y_old*cols + x_old ) -32'sd1) >> 2;//address_current_pixel_0;
+							read_address[ ((y_old*cols + x_old)) & 2'b11 ] <= ((y_old*cols + x_old )) >> 2;//address_current_pixel_1;
+							read_address[ ((y_old*cols + x_old)+1) & 2'b11 ] <= ((y_old*cols + x_old ) +1) >> 2;//address_current_pixel_2;
+							read_address[ ((y_old*cols + x_old)+2) & 2'b11 ] <= ((y_old*cols + x_old ) +2) >> 2;//address_current_pixel_3;
+					  end
+					  READING: begin
+							read_address[ ((y_old*cols + x_old - cols) -1) & 2'b11 ] <= ((y_old*cols + x_old - cols) -1) >> 2;//address_current_pixel_0;
+							read_address[ ((y_old*cols + x_old - cols)) & 2'b11 ] <= ((y_old*cols + x_old - cols)) >> 2;//address_current_pixel_1;
+							read_address[ ((y_old*cols + x_old -cols)+1) & 2'b11 ] <= ((y_old*cols + x_old - cols) +1) >> 2;//address_current_pixel_2;
+							read_address[ ((y_old*cols + x_old -cols)+2) & 2'b11 ] <= ((y_old*cols + x_old - cols) +2) >> 2;//address_current_pixel_3;
+					  end
+					  READING2: begin
+							read_address[ ((y_old*cols + x_old + cols) -1) & 2'b11 ] <= ((y_old*cols + x_old + cols) -1) >> 2;//address_current_pixel_0;
+							read_address[ ((y_old*cols + x_old + cols)) & 2'b11 ] <= ((y_old*cols + x_old + cols)) >> 2;//address_current_pixel_1;
+							read_address[ ((y_old*cols + x_old + cols)+1) & 2'b11 ] <= ((y_old*cols + x_old + cols) +1) >> 2;//address_current_pixel_2;
+							read_address[ ((y_old*cols + x_old + cols)+2) & 2'b11 ] <= ((y_old*cols + x_old + cols) +2) >> 2;//address_current_pixel_3;
+					  end
+					  ROW0: begin
+							read_address[ ((y_old*cols + x_old + cols + cols) -1) & 2'b11 ] <= ((y_old*cols + x_old + cols + cols) -1) >> 2;//address_current_pixel_0;
+							read_address[ ((y_old*cols + x_old + cols + cols)) & 2'b11 ] <= ((y_old*cols + x_old + cols + cols)) >> 2;//address_current_pixel_1;
+							read_address[ ((y_old*cols + x_old + cols + cols)+1) & 2'b11 ] <= ((y_old*cols + x_old + cols + cols) +1) >> 2;//address_current_pixel_2;
+							read_address[ ((y_old*cols + x_old + cols + cols)+2) & 2'b11 ] <= ((y_old*cols + x_old + cols + cols) +2) >> 2;//address_current_pixel_3;
+					  end
+					  default : begin
+							read_address[ ((y_old*cols + x_old) -1) & 2'b11 ] <= ((y_old*cols + x_old ) -1) >> 2;//address_current_pixel_0;
+							read_address[ ((y_old*cols + x_old)) & 2'b11 ] <= ((y_old*cols + x_old )) >> 2;//address_current_pixel_1;
+							read_address[ ((y_old*cols + x_old)+1) & 2'b11 ] <= ((y_old*cols + x_old ) +1) >> 2;//address_current_pixel_2;
+							read_address[ ((y_old*cols + x_old)+2) & 2'b11 ] <= ((y_old*cols + x_old ) +2) >> 2;//address_current_pixel_3;address_current_pixel_3;
+					  end
+				 endcase  
+				 memory_current_pixel[0] <= (y_old*cols + x_old) & 3; // current_pixel_PROCESSED%4  relative to state 0
+			 memory_current_pixel[1] <= (y_old*cols + x_old - cols) & 3; // current_pixel_PROCESSED%4  relative to state -1
+			 memory_current_pixel[2] <= (y_old*cols + x_old + cols) & 3; // current_pixel_PROCESSED%4  relative to state -1
+			 memory_current_pixel[3] <= (y_old*cols + x_old + cols + cols) & 3; // current_pixel_PROCESSED%4  relat              
+	end
+end
+
+always_ff @(posedge clock or posedge reset) begin
+    if(reset) begin
+        m <= 0;
+        i <= 0;
+        j <= 0;     
+		x_old <= 0;
+		y_old <= 0;		
+		  pixel_out <= 0;
+		 pixel_valid <= 0; 
+        state <= IDLE;
+    end
+    else begin
+        if(y_old+3 >= rows || x_old+3 >= cols) begin // CONDICAO DE CONTORNO
+            if((current_pixel_RAM >= limit_pixel_PROCESSED) && trigger) begin
+                case(state) 
+                    IDLE: begin
+                        pixel_out <= 0;
+                        pixel_valid <= 0;
+                        state <= READING;
+                    end       
+                    READING: begin
+                        state <= READING2;
+                    end            
+                    READING2: begin
+                        state <= BORDER_CASE;
+                    end
+                    BORDER_CASE: begin // OUTPUT PIXEL
+                        pixel_out <= pixels_read[memory_current_pixel[0] & 3];
+                        pixel_valid <= 1;
+                        state <= IDLE;
+                        if(j >= 127) begin
+                            j <= 0 ;
+                            i <= i + 1;
+									 x_old <= 0;
+									 y_old <= ((rows << (SHIFT_AMOUNT - FP128))*(i+1)) >> SHIFT_AMOUNT;
+                        end
+                        else begin
+									x_old <= ((cols << (SHIFT_AMOUNT - FP128))*(j+1)) >> SHIFT_AMOUNT;
+									y_old <= ((rows << (SHIFT_AMOUNT - FP128))*i) >> SHIFT_AMOUNT;
+                            j <= j + 1;
+                        end                        
+                    end                    
+                endcase
+            end
+            else begin
+                pixel_valid <= 0;
+                pixel_out <= 0;
+                state <= IDLE;
+            end
+        end
+        else begin   
+        //    if(x_old >= 1 && y_old  >= 1) begin         
+              if((current_pixel_RAM >= (limit_pixel_PROCESSED + cols*32'sd2) ) && trigger) begin
+                    case(state) 
+                        IDLE: begin
+                            pixel_out <= 0;
+                            state <= READING;
+                            pixel_valid <= 0;						
+                        end
+                        READING: begin
+                            m <= 0;
+                            state <= READING2;                        
+                        end
+                        READING2: begin
+                            m <= 0;
+                            state <= ROW0;
+                        end
+                        ROW0: begin  
+                                if(x_old >= 1) begin
+                                        pixel_out <= (pixels_read[(memory_current_pixel[0]-1)  & 3 ]*Rx[0]*Ry[0] >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[memory_current_pixel[0]  & 3 ]*Rx[1]*Ry[1]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[0]+1)  & 3 ]*Rx[2]*Ry[2]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[0]+2) & 3  ]*Rx[3]*Ry[3]  >> 2*SHIFT_AMOUNT);    
+                                end
+                                else begin
+                                        pixel_out <= (pixels_read[memory_current_pixel[0]  & 3 ]*Rx[1]*Ry[1]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[0]+1)  & 3 ]*Rx[2]*Ry[2]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[0]+2) & 3  ]*Rx[3]*Ry[3]  >> 2*SHIFT_AMOUNT) ;
+                                end	
+                        							
+                                                                                                         
+                            m <= - 1;
+                            state <= ROW1;
+                        end                                   
+                        ROW1: begin    
+
+                            if(y_old >= 1) begin  
+                                if(x_old >= 1) begin
+                                       pixel_out <= pixel_out + (pixels_read[(memory_current_pixel[1]-1)  & 3 ]*Rx[0]*Ry[0]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[memory_current_pixel[1]  & 3 ]*Rx[1]*Ry[1]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[1]+1)  & 3 ]*Rx[2]*Ry[2]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[1]+2) & 3  ]*Rx[3]*Ry[3]  >> 2*SHIFT_AMOUNT) ; 
+                                end
+                                else begin
+                                 pixel_out <= pixel_out + 
+                                         (pixels_read[memory_current_pixel[1]  & 3 ]*Rx[1]*Ry[1]  >> 2*SHIFT_AMOUNT) +
+                                         (pixels_read[(memory_current_pixel[1]+1)  & 3 ]*Rx[2]*Ry[2]  >> 2*SHIFT_AMOUNT) +
+                                         (pixels_read[(memory_current_pixel[1]+2) & 3  ]*Rx[3]*Ry[3] >> 2*SHIFT_AMOUNT) ;
+                                end	
+                            end
+                            m <= 1;
+                            state <= ROW2;
+                        end
+                        ROW2: begin 
+
+                                if(x_old >= 1) begin
+                                       pixel_out <= pixel_out + 
+                                                     (pixels_read[(memory_current_pixel[2]-1)  & 3 ]*Rx[0]*Ry[0]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[memory_current_pixel[2]  & 3 ]*Rx[1]*Ry[1]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[2]+1)  & 3 ]*Rx[2]*Ry[2]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[2]+2) & 3  ]*Rx[3]*Ry[3] >> 2*SHIFT_AMOUNT) ;     
+                                
+                                end
+                                else begin
+                                       pixel_out <= pixel_out + 
+                                         (pixels_read[memory_current_pixel[2]  & 3 ]*Rx[1]*Ry[1]  >> 2*SHIFT_AMOUNT) +
+                                         (pixels_read[(memory_current_pixel[2]+1)  & 3 ]*Rx[2]*Ry[2]  >> 2*SHIFT_AMOUNT) +
+                                        (pixels_read[(memory_current_pixel[2]+2) & 3  ]*Rx[3]*Ry[3] >> 2*SHIFT_AMOUNT) ;
+                                end
+                                
+                                m <= 2;
+                                state <= ROW3;
+                        end                               
+                        ROW3: begin
+                                 if(x_old >= 1) begin
+                                       pixel_out <= pixel_out +
+                                                     (pixels_read[(memory_current_pixel[3]-1)  & 3 ]*Rx[0]*Ry[0]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[memory_current_pixel[3]  & 3 ]*Rx[1]*Ry[1]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[3]+1)  & 3 ]*Rx[2]*Ry[2]  >> 2*SHIFT_AMOUNT) +
+                                                     (pixels_read[(memory_current_pixel[3]+2) & 3  ]*Rx[3]*Ry[3]  >> 2*SHIFT_AMOUNT) ; 
+                                end
+                                else begin
+
+                                pixel_out <= pixel_out + 
+                                         (pixels_read[memory_current_pixel[3]  & 3 ]*Rx[1]*Ry[1]  >> 2*SHIFT_AMOUNT ) +
+                                         (pixels_read[(memory_current_pixel[3]+1)  & 3 ]*Rx[2]*Ry[2]  >> 2*SHIFT_AMOUNT) +
+                                         (pixels_read[(memory_current_pixel[3]+2) & 3  ]*Rx[3]*Ry[3] >> 2*SHIFT_AMOUNT);       
+                                        
+                                end
+                           
+                            state <= IDLE;
+                            pixel_valid <= 1;
+                            if(j >= 127) begin
+                                j <= 0 ;
+                                i <= i + 1;
+										  x_old <= 0;
+										  y_old <= ((rows << (SHIFT_AMOUNT - FP128))*(i+1)) >> SHIFT_AMOUNT;
+                            end
+                            else begin
+                                j <= j + 1;
+										  x_old <= ((cols << (SHIFT_AMOUNT - FP128))*(j+1)) >> SHIFT_AMOUNT;
+										  y_old <= ((rows << (SHIFT_AMOUNT - FP128))*i) >> SHIFT_AMOUNT;
+                            end             
+                        end
+                    endcase
+               // end
+            end
+            else begin
+                pixel_out <= 0;
+                pixel_valid <= 0;
+                state <= IDLE;
+                     
+            end
+        end    
+    end
+end
+endmodule 
+
+
+
+

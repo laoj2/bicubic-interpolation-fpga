@@ -1,0 +1,235 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Luiz Antonio\Desktop\tg\FPGA\riffa\altera\de2i\DE2Gen1x1If64\hdl\testbench
+vbuffer_control
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+Z2 !s100 Z2EzNU4f6486_G^fCzi4N3
+Z3 I6BgeCkj:gj2gTQ0b0Ei;`0
+Z4 VAFHRb>^gJLG@0oB<@jRdL3
+Z5 !s105 buffer_control_sv_unit
+S1
+Z6 dC:\Users\Luiz Antonio\Desktop\tg\FPGA\riffa\altera\de2i\DE2Gen1x1If64\hdl\testbench
+Z7 w1494381889
+Z8 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/buffer_control.sv
+Z9 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/buffer_control.sv
+L0 1
+Z10 OV;L;10.1e;51
+r1
+31
+Z11 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/buffer_control.sv|
+Z12 o-work work -O0
+Z13 !s108 1494385238.832000
+Z14 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/buffer_control.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vbuffer_image
+Z15 ID2HGz;6Jl?ZYA]Qm9PP213
+Z16 Vb2kn8bdDh^YJKdcHAa2l<0
+R6
+Z17 w1494395671
+Z18 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/buffer_image.v
+Z19 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/buffer_image.v
+L0 40
+R10
+r1
+31
+Z20 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/buffer_image.v|
+R12
+!i10b 1
+Z21 !s100 lXE?3:3h0KPdLzilQB4P?0
+!s85 0
+Z22 !s108 1494395896.632000
+Z23 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/buffer_image.v|
+!s101 -O0
+vcontrol_unit
+R1
+!i10b 1
+Z24 !s100 N_2YdbDkE01b7FXlU5VO?2
+Z25 IRFB>8QZ`ZAkYU29Tnc7[<3
+Z26 VC?M>gC]F_NJ9Mm1XCmQeC2
+Z27 !s105 control_unit_sv_unit
+S1
+R6
+Z28 w1494395857
+Z29 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/control_unit.sv
+Z30 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/control_unit.sv
+L0 1
+R10
+r1
+!s85 0
+31
+!s108 1494395957.968000
+!s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/control_unit.sv|
+Z31 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/control_unit.sv|
+!s101 -O0
+R12
+vfifo
+Z32 IXXMAKi1;bkC7@OP]=:Z]O2
+Z33 Vom[d8QI;5K5]HPWlKS@9l2
+R6
+Z34 w1493791617
+Z35 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo.v
+Z36 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo.v
+L0 40
+R10
+r1
+31
+R12
+Z37 !s100 ]XgZaF6ac?8:QJf1I]GjZ1
+Z38 !s108 1494383024.580000
+Z39 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo.v|
+Z40 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vfifo_in
+Z41 II2f`0f@n03gN@c2eJS2:i0
+Z42 V775LjF8C?F5dd2BfiKH?73
+R6
+Z43 w1494183186
+Z44 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo_in.v
+Z45 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo_in.v
+L0 40
+R10
+r1
+31
+R12
+Z46 !s100 R`D=c<Tbm0ii2dBX:N2HF0
+Z47 !s108 1494383027.125000
+Z48 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo_in.v|
+Z49 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo_in.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vfifo_out
+Z50 IC1UD6dRG7_flK?VTN;XmD1
+Z51 Vn;6GO5VM:]EM0hICoW7UG3
+R6
+Z52 w1494183071
+Z53 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo_out.v
+Z54 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo_out.v
+L0 40
+R10
+r1
+31
+R12
+Z55 !s100 BHmSHN][V0L4@PbQPVJR72
+Z56 !s108 1494383028.445000
+Z57 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo_out.v|
+Z58 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/memories/fifo_out.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vfilter_controller
+R1
+Z59 !s100 oCWldbU]8mFI[6[I^`ohD0
+Z60 IngeG]LTM8C:67dEOQRDK:1
+Z61 Vli@G>U;HNM[Q9N?GLUOO20
+Z62 !s105 filter_controller_sv_unit
+S1
+R6
+Z63 w1494391020
+Z64 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/filter_controller.sv
+Z65 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/filter_controller.sv
+L0 1
+R10
+r1
+31
+Z66 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/filter_controller.sv|
+R12
+Z67 !s108 1494395863.628000
+Z68 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/filter_controller.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vget_r_value
+R1
+Z69 !s100 V8<AVo9XX6O=<VdJ4HlM`2
+Z70 ILOdW=QlBeFGKLE3SU6E?=3
+Z71 VPL^1_R_S[H;bTX1FRd=dQ3
+Z72 !s105 get_r_value_sv_unit
+S1
+R6
+Z73 w1493708267
+Z74 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/get_r_value.sv
+Z75 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/get_r_value.sv
+L0 1
+R10
+r1
+31
+Z76 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/get_r_value.sv|
+R12
+Z77 !s108 1494385245.043000
+Z78 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/get_r_value.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vget_weight_mn
+R1
+Z79 !s100 WQkgKWNzbe9S45ZMRVG7_0
+Z80 IT9UJSQg70WNdAJZB_YBEE3
+Z81 VNN_4JKT@@S2UMHdPHMRkh3
+Z82 !s105 get_weight_mn_sv_unit
+S1
+R6
+Z83 w1494381692
+Z84 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/get_weight_mn.sv
+Z85 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/get_weight_mn.sv
+L0 1
+R10
+r1
+31
+Z86 !s90 -reportprogress|30|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/get_weight_mn.sv|
+R12
+Z87 !s108 1494385246.549000
+Z88 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/get_weight_mn.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vtb
+R1
+Z89 !s100 4=VdUPD^c4z_N3P37UPz`3
+Z90 IiZh[4ZE1a39SC9]<dSNT21
+Z91 VV@Xn<HnSRM[I5c1?BH]3a3
+Z92 !s105 testbench_buffer_control_sv_unit
+S1
+R6
+Z93 w1492990015
+Z94 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/testbench_buffer_control.sv
+Z95 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/testbench_buffer_control.sv
+L0 3
+R10
+r1
+31
+Z96 !s90 -reportprogress|30|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/testbench_buffer_control.sv|
+R12
+Z97 !s108 1494385248.202000
+Z98 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/testbench_buffer_control.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vtb_c_unit
+R1
+Z99 IY;MaI;N^D[Nz5VGfbL8Y[3
+Z100 V=UJ=6WUEU8OmX9o46]OR00
+Z101 !s105 testbench_control_unit_sv_unit
+S1
+R6
+Z102 w1494394799
+Z103 8C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/testbench_control_unit.sv
+Z104 FC:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/testbench_control_unit.sv
+L0 3
+R10
+r1
+31
+Z105 !s90 -reportprogress|300|-work|work|C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/testbench_control_unit.sv|
+R12
+Z106 !s100 Ge[9OE@@Yn;:YnlhZBn;e3
+Z107 !s108 1494394803.191000
+Z108 !s107 C:/Users/Luiz Antonio/Desktop/tg/FPGA/riffa/altera/de2i/DE2Gen1x1If64/hdl/testbench/testbench_control_unit.sv|
+!i10b 1
+!s85 0
+!s101 -O0

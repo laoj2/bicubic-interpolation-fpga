@@ -1,0 +1,30 @@
+PLL_Name	ALTPLL50I50O125O250O:ALTPLL50I50O125O250O_inst|altpll:altpll_component|ALTPLL50I50O125O250O_altpll:auto_generated|pll1
+PLLJITTER	26
+PLLSPEmax	84
+PLLSPEmin	-53
+
+PLL_Name	PCIeGen1x1If64:pcie_inst|PCIeGen1x1If64_core:wrapper|altpcie_hip_pipen1b:altpcie_hip_pipen1b_inst|cyclone_iii.cycloneiv_hssi_pcie_hip
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	PCIeGen1x1If64:pcie_inst|PCIeGen1x1If64_serdes:serdes|PCIeGen1x1If64_serdes_alt_c3gxb_mmf8:PCIeGen1x1If64_serdes_alt_c3gxb_mmf8_component|altpll:pll0|altpll_nn81:auto_generated|pll1
+PLLJITTER	31
+PLLSPEmax	84
+PLLSPEmin	-53
+
+PLL_Name	PCIeGen1x1If64:pcie_inst|PCIeGen1x1If64_serdes:serdes|PCIeGen1x1If64_serdes_alt_c3gxb_mmf8:PCIeGen1x1If64_serdes_alt_c3gxb_mmf8_component|receive_pma0
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	PCIeGen1x1If64:pcie_inst|PCIeGen1x1If64_serdes:serdes|PCIeGen1x1If64_serdes_alt_c3gxb_mmf8:PCIeGen1x1If64_serdes_alt_c3gxb_mmf8_component|transmit_pcs0
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	PCIeGen1x1If64:pcie_inst|PCIeGen1x1If64_serdes:serdes|PCIeGen1x1If64_serdes_alt_c3gxb_mmf8:PCIeGen1x1If64_serdes_alt_c3gxb_mmf8_component|transmit_pma0
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
